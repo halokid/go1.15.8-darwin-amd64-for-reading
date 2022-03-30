@@ -25,9 +25,9 @@ func main() {
       log.Printf("get element from chan1 -->>> %+v", e)
     case e := <- chan2 :
       log.Printf("get element from chan2 -->>> %+v", e)
-    //default:
-    //  log.Printf("No element in chan1 and chan2")
-    //  time.Sleep(1 * time.Second)
+    default:
+     log.Printf("No element in chan1 and chan2")
+     time.Sleep(1 * time.Second)
     }
   }
 }
