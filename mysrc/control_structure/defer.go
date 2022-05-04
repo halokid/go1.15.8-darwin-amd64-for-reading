@@ -26,6 +26,7 @@ func deferFuncPx() {
   return
 }
 
+// todo: return special variable name
 func deferFuncPy() (result int) {
   log.Println("result 1 -->>>", result)
   i := 1
@@ -43,6 +44,18 @@ func deferFuncPy() (result int) {
   return i    // todo: return i to `result`, result here is 1
 }
 
+// todo: return anonymous varible name
+func foo() int {
+  var i int
+
+  defer func() {
+    i++
+    log.Println("foo() inner i -->>>", i)   // todo: run before return
+  }()
+
+  return i
+}
+
 func main() {
   deferFuncParameter()
 
@@ -50,6 +63,11 @@ func main() {
 
   i := deferFuncPy()
   log.Println("i -->>>", i)
+
+  ix := foo()
+  log.Println("ix -->>>", ix)
+
 }
+
 
 
